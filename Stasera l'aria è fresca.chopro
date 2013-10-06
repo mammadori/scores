@@ -1,0 +1,36 @@
+{title:Stasera l'aria è fresca}
+{st:Testo e musica di Goran Kuzminac}
+
+{define: Esus4 base-fret 1 frets 0 0 2 2 0 0}
+{define: G6 base-fret 1 frets 0 2 0 0 3 0}
+
+{c:Ritornello}
+
+{soc}
+    [Em]Stasera l'aria è[G] fresca 
+    potreb[Esus4]bero venirmi dei[Em] pensieri
+    [Em]Più dolci del vino che[G] bevi
+    [Esus4]più chiari delle tue rispo[Em]ste
+{eoc}
+
+[Em]Paola aveva una[C] amica 
+[Em]Speranza sopra di[G] lei
+[Em]e i passi del suo[C] amante
+[Em]non fanno molto rumo[G]re
+
+{c:Ritornello}
+
+{c:Bridge}
+[C]Non pens[G6]ava alla[Em] rivoluzione
+[C]non aveva[G6] molti[Em] problemi
+[C]e la sua[G6] casa era[Em] grande
+[C]per una[G6] persona[Em] sola
+
+{c:Ritornello}
+
+[Em]Ma sui fotoroma[C]nzi
+[Em]le storie finiscono[G] sempre bene
+[Em]e forse anche il tuo[C] uomo
+[Em]ritornerà genti[G]le
+
+{c:Ritornello}

@@ -1,0 +1,81 @@
+{t:Goldrake}
+{st:Alessio Caraturo}
+
+{define: D(no3) base-fret 0 frets x x 0 2 3 5}
+{define: D5-(no3) base-fret 0 frets x x 0 1 3 4}
+{define: D/F# base-fret 0 frets x x 4 2 3 2}
+{define: G2 base-fret 0 frets 3 x 0 2 3 3}
+{define: G2/5- base-fret 0 frets 3 x 0 2 2 3}
+{define: G7+ base-fret 0 frets 3 2 0 0 0 2}
+{define: G6 base-fret 0 frets 3 2 0 0 0 0}
+{define: A4 base-fret 0 frets x 0 2 2 3 0}
+
+{c:Intro:}
+
+{start_of_tab}
+e|----------------|----------------|----------------|----------------|
+B|-------3------3-|-------3------3-|-------3------3-|-------3------3-|
+G|-----2------2---|-----2------2---|-----1------1---|-----1------1---|
+D|-0--------------|-0--------------|-0--------------|-0--------------|
+A|----------------|----------------|----------------|----------------|
+E|----------------|----------------|----------------|----------------|
+
+   D(no3)                        D5-(no3)
+
+e|----------------|----------------|--------------0-|----------------|
+B|-------3------3-|-------3------3-|-------3--------|----------------|
+G|-1h2-2------2---|-----2------2---|-2p1-1------1---|----------------|
+D|-0--------------|-0--------------|-0--------------|----------------|
+A|----------------|----------------|----------------|----------------|
+E|----------------|----------------|----------------|----------------|
+
+
+   D(no3)                        D5(no3)
+
+{end_of_tab}
+
+
+[D]Vai contro i [D/F#]mostri lanciati da [G2]Vega
+[D]vai che il tuo [D/F#]cuore nessuno lo [G2]piega
+
+[A4]E [A] io sto tran[G]quillo [G2/5-] se ci sei [G2]tu
+
+[Gm7]Mille armi tu hai
+
+
+[D/F#]non arrenderti mai
+[G2]perchè il Bene tu se[A4]i,[A] sei con noi
+
+[D]Va, [D/F#]distruggi il male [G]va [G7+] [G6] [G]
+[D]Va, [D/F#]distruggi il male [G]va [G2/5-] [G2]
+
+[Bm7]invincibile sei per[D/F#]ché Actarus c'è
+[G2]che combatte con te [A4]dentr[A]o te.. [A4] [A]
+
+{c:Strumentale:}
+
+[D] [D/F#] [G]
+[D] [D/F#] [G] [G2/5-] [G2]
+[G] [G2/5-] [G2]
+
+[D]Vai, c'è sul radar la flotta di [G2]Vega
+[D]Vai, il tuo [D/F#]corpo d'acciaio sol[G2]leva
+
+[A4]No, [A] la razza u[G]mana [G2/5-]non mori[G2]rà
+[Bm7]invincibile sei per[D/F#]ché Actarus c'è
+[G2]che combatte con te [A4]dentr[A]o te.. [A4] [A]
+
+[D]Va, [D/F#]distruggi il male [G]va [G7+] [G6] [G]
+[D]Va, [D/F#]distruggi il male [G]va [G2/5-] [G2]
+
+Mille [Bm7]armi tu hai
+non ar[D/F#]renderti mai
+
+perchè il [G2]Bene tu sei, sei con [A4]noi [A]
+
+{c:Finale}
+
+[D(no3)] [D5-(no3)]
+[D(no3)] [D5-(no3)]
+[D(no3)] [D5-(no3)]
+[D(no3)]

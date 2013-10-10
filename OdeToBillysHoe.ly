@@ -1,3 +1,4 @@
+\language "italiano"
 #(define (tie::tab-clear-tied-fret-numbers grob)
    (let* ((tied-fret-nr (ly:spanner-bound grob RIGHT)))
       (ly:grob-set-property! tied-fret-nr 'transparent #t)))
@@ -11,9 +12,8 @@
    print-all-headers = ##t
    ragged-right = ##f
    ragged-bottom = ##f
-   
-   
 }
+
 \layout {
    \context { \Score
       \override MetronomeMark #'padding = #'5
@@ -55,95 +55,110 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
 #{
    \tempo 4=120
    \clef #(if inTab "tab" "treble_8")
-   \key g \major
+   \key sol \major
    \time 4/4
    \set Staff.midiInstrument = #"acoustic guitar (steel)"
    \set fingeringOrientations = #'(left)
+   
+
    \voiceOne % parte melodica, indice, medio, anulare
-   r2 <d\4-\RH #2 >8 ( <dis-1\4>8 ) ( <e-3\4>8 ) [<g\3-\RH #3 >8 ]|
+   r2 <re\4-\RH #2 >8 ( <red-1\4>8 ) ( <mi-3\4>8 ) [<sol\3-\RH #3 >8 ]|
    \repeat volta 2 {
 
      \mergeDifferentlyHeadedOn
-      r8 <g\3>8 \acciaccatura <f'-2\1>8 \glissando <fis'\1-\RH #4 b\2-\RH #3 >4~ <fis'\1  b\2 >8 ( <e'\1>8 ) <d'-3\2-\RH #4 >8 [
+      r8 <sol\3>8 \acciaccatura <fa'-2\1>8 \glissando <fad'\1-\RH #4 si\2-\RH #3 >4~ <fad'\1  si\2 >8 ( <mi'\1>8 ) <re'-3\2-\RH #4 >8 [
       \textSpannerUp % barré
       \override TextSpanner #'(bound-details left text) = #"4/6 B II "
-       <cis'\2-\RH #4 e\4-\RH #2 >8 ] \startTextSpan |
-       r8 <cis'-\RH #4 e-\RH #2 >8 ( <d'\2-2 fis\4-3 >8 )[ 
+       <dod'\2-\RH #4 mi\4-\RH #2 >8 ] \startTextSpan |
+       \set doubleSlurs = ##t
+       r8 <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[ 
       \stopTextSpan
       
-      <e'\1~ a\3( >8 ] <e'\1 g\3) >8  fis8 r8 <g-\RH  #2 > |
-      e,8 <g\3>8 <fis'\1 b\2 >4~ <b\2 fis'\1 >8 [ \( \acciaccatura {<g'\1>16 [ <fis'\1>16 ]  } <e'\1>8 ]  \)  <d'\2-3-\RH #4 >8  [ 
+      <mi'\1~ la\3( >8 ] <mi'\1 sol\3) >8  fad8 r8 <sol-\RH  #2 > |
+      mi,8 <sol\3>8 <fad'\1 si\2 >4~ <si\2 fad'\1 >8 [ \( \acciaccatura {<sol'\1>16 [ <fad'\1>16 ]  } <mi'\1>8 ]  \)  <re'\2-3-\RH #4 >8  [ 
       
       \textSpannerUp % barré
-      <cis'\2-\RH #4  e\4-\RH #2 >8 ] \startTextSpan |
-      r8 <cis'\2 e\4 >8 ( <d'-2\2 fis\4-3 >8 ) [
+      <dod'\2-\RH #4  mi\4-\RH #2 >8 ] \startTextSpan |
+      r8 <dod'\2 mi\4 >8 ( <re'-2\2 fad\4-3 >8 ) [
       \stopTextSpan
       
-      <e'\1~ a\3 >8 ] ( <e'\1 g\3 >8 ) <fis-\RH #1 >8 r8 <g> |
-      r4 <fis'-1\1-\RH #4 >8 <g\3-\RH #2 >8 <g,\6>8 [ <d'-3\2-\RH #3 >8 ] <g\3>8 <g'-4\1>8  |
+      <mi'\1~ la\3 >8 ] ( <mi'\1 sol\3 >8 ) <fad-\RH #1 >8 r8 <sol> |
+      r4 <fad'-1\1-\RH #4 >8 <sol\3-\RH #2 >8 <sol,\6>8 [ <re'-3\2-\RH #3 >8 ] <sol\3>8 <sol'-4\1>8  |
    }
    \alternative {
-    {
-      c8 [ <g'\1-4>8 ] ( <fis'\1-1>8 ) <g\3>8 <e'\1>8 [ <d'\2-3>8 ] <g\3-\RH #2 >8 <b\2-\RH #4 >8 |
+    {\set doubleSlurs = ##f
+      do8 [ <sol'\1-4>8 ] ( <fad'\1-1>8 ) <sol\3>8 <mi'\1>8 [ <re'\2-3>8 ] <sol\3-\RH #2 >8 <si\2-\RH #4 >8 |
      \mergeDifferentlyHeadedOn
      \mergeDifferentlyDottedOn
-      <b,\5-2>8 [ <a\3-3-\RH #3 >8 ]  <dis\4-1-\RH #2 >8  <a,\5>8 r2  |
-      <a\3-3-\RH #3 >8 \glissando ([ <ais\3 >8 ]) \glissando (<a\3 >8 ) (<g\3>8 )  a-1 ( [ g8 ) ] <e\4-1>8 [ ( d8 ) ]|
+      <si,\5-2>8 [ <la\3-3-\RH #3 >8 ]  <red\4-1-\RH #2 >8  <la,\5>8 r2  |
+    
+      <la\3-3-\RH #3 >8 \glissando ([ <lad\3 >8 ]) \glissando (<la\3 >8 ) (<sol\3>8 )  la-1 ( [ sol8 ) ] <mi\4-1>8 [ ( re8 ) ]|
     }
     {
       \override TextSpanner #'(bound-details left text) = #"4/6 B V "
       \textSpannerUp % barré 
                
       
-      c8 [ <g'\1>8 ] ( <fis'\1>8 ) <g\3>8 <e'\1>8 [ <d'\2>8 ] <g\3>8 <e'\1-\RH #4 >8 |
-      e,8 [  <a\3-2-\RH #4 fis'\1-1-\RH #2  >8 ( ] \startTextSpan
-      
-      
-      <g\3   e'\1  >8 )
+      do8 [ <sol'\1>8 ] ( <fad'\1>8 ) <sol\3>8 <mi'\1>8 [ <re'\2>8 ] <sol\3>8 <mi'\1-\RH #4 >8 |
+       \set doubleSlurs = ##t
+      mi,8 [  <la\3-2-\RH #4 fad'\1-1-\RH #2  >8 ( ] \startTextSpan
+      \set doubleSlurs = ##f
+
+      <sol\3   mi'\1  >8 )
       \stopTextSpan
       
-      <g\4 c'\3 e'\2 >8 e,8 [ <fis\4-2 b\3-3  d'\2-1 >8 ] e,8 <b\3-\RH #4 d\4-\RH #2 >8 |
-      e,8 [ <a\3-1>8 (] <g\3>8 ) <a\3>8 ( <g\3>8 ) [ <e\4>8 (] <d\4>8 ) cis8 |
-      r8 <d\4-\RH #2 >8 ( <e\4-2>8 ) [ <g\3-\RH #3 >8 ]<b\2-\RH #4 >8 [ <g\3-\RH #3 >8 ] <e\4-\RH #2 >8 <g'\1-4-\RH #4 >8~ |
-      g'2 <d\4-\RH #2 >8 ( <dis-1\4>8 ) ( <e-3\4>8 ) [<g\3-\RH #3 >8 ]|
+      <sol\4 do'\3 mi'\2 >8 mi,8 [ <fad\4-2 si\3-3  re'\2-1 >8 ] mi,8 <si\3-\RH #4 re\4-\RH #2 >8 |
+      mi,8 [ <la\3-1>8 (] <sol\3>8 ) <la\3>8 ( <sol\3>8 ) [ <mi\4>8 (] <re\4>8 ) dod8 |
+      r8 <re\4-\RH #2 >8 ( <mi\4-2>8 ) [ <sol\3-\RH #3 >8 ]<si\2-\RH #4 >8 [ <sol\3-\RH #3 >8 ] <mi\4-\RH #2 >8 <sol'\1-4-\RH #4 >8~ |
+      sol'2 <re\4-\RH #2 >8 ( <red-1\4>8 ) ( <mi-3\4>8 ) [<sol\3-\RH #3 >8 ]|
     }
    }
    \repeat volta 2 {
 
      \mergeDifferentlyHeadedOn
-      r8^\markup {\musicglyph #"scripts.segno" } <g\3>8 \acciaccatura <f'-2\1>8 \glissando <fis'\1-\RH #4 b\2-\RH #3 >4~ <fis'\1  b\2 >8 ( <e'\1>8 ) <d'-3\2-\RH #4 >8 [
+      r8^\markup {\musicglyph #"scripts.segno" } <sol\3>8 \acciaccatura <fa'-2\1>8 \glissando <fad'\1-\RH #4 si\2-\RH #3 >4~ <fad'\1  si\2 >8 ( <mi'\1>8 ) <re'-3\2-\RH #4 >8 [
       \textSpannerUp % barré
       \override TextSpanner #'(bound-details left text) = #"4/6 B II "
-       <cis'\2-\RH #4 e\4-\RH #2 >8 ] \startTextSpan |
-       r8 <cis'-\RH #4 e-\RH #2 >8 ( <d'\2-2 fis\4-3 >8 )[ 
+       <dod'\2-\RH #4 mi\4-\RH #2 >8 ] \startTextSpan |
+       \set doubleSlurs = ##t
+       r8 <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[ 
       \stopTextSpan
       
-      <e'\1~ a\3( >8 ] <e'\1 g\3) >8  fis8 r8 <g-\RH  #2 > |
-      e,8 <g\3>8 <fis'\1 b\2 >4~ <b\2 fis'\1 >8 [ \( \acciaccatura {<g'\1>16 [ <fis'\1>16 ]  } <e'\1>8 ]  \)  <d'\2-3-\RH #4 >8  [ 
+      <mi'\1~ la\3( >8 ] <mi'\1 sol\3) >8  fad8 r8 <sol-\RH  #2 > |
+      mi,8 <sol\3>8 <fad'\1 si\2 >4~ <si\2 fad'\1 >8 [ \(
+      \set doubleSlurs = ##f
+      \acciaccatura {<sol'\1>16 [ <fad'\1>16 ]  } 
+      <mi'\1>8 ]  \)  <re'\2-3-\RH #4 >8  [ 
       
       \textSpannerUp % barré
-      <cis'\2-\RH #4  e\4-\RH #2 >8 ] \startTextSpan |
-      r8 <cis'\2 e\4 >8 ( <d'-2\2 fis\4-3 >8 ) [
+      <dod'\2-\RH #4  mi\4-\RH #2 >8 ] \startTextSpan |
+        \set doubleSlurs = ##t
+        r8 <dod'\2 mi\4 >8 ( <re'-2\2 fad\4-3 >8 ) [
       \stopTextSpan
       
-      <e'\1~ a\3 >8 ] ( <e'\1 g\3 >8 ) <fis-\RH #1 >8 r8 <g> |
-      r4 <fis'-1\1-\RH #4 >8 <g\3-\RH #2 >8 <g,\6>8 [ <d'-3\2-\RH #3 >8 ] <g\3>8 <g'-4\1>8  |
+      <mi'\1~ la\3 >8 ] ( <mi'\1 sol\3 >8 ) <fad-\RH #1 >8 r8 <sol> |
+      r4 <fad'-1\1-\RH #4 >8 <sol\3-\RH #2 >8 <sol,\6>8 [ <re'-3\2-\RH #3 >8 ] <sol\3>8 <sol'-4\1>8  |
    }
    \alternative {
-       {
-      c8 [ <g'\1-4>8 ] ( <fis'\1-1>8 ) <g\3>8 <e'\1>8 [ <d'\2-3>8 ] <g\3-\RH #2 >8 <b\2-\RH #4 >8 |
+       { \set doubleSlurs = ##f
+      do8 [ <sol'\1-4>8 ] ( <fad'\1-1>8 ) <sol\3>8 <mi'\1>8 [ <re'\2-3>8 ] <sol\3-\RH #2 >8 <si\2-\RH #4 >8 |
      \mergeDifferentlyHeadedOn
      \mergeDifferentlyDottedOn
-      <b,\5-2>8 [ <a\3-3-\RH #3 >8 ]  <dis\4-1-\RH #2 >8  <a,\5>8 r4 r8^\markup { "perc." } <dis'-3>8 (  |
-      <e'\2-3 >8-> ) [ <e'\1 >8 ] <e'-\RH #4 ~ a-1-\RH #2 >16 ( <e' g>16 )  e8 
-      \acciaccatura <a-2>8 \glissando <b-2>8 [ <d'-1>8 ]\acciaccatura <b-2>8 \glissando <a-2>8 ( <g\3>8 ) |
+      <si,\5-2>8 [ <la\3-3-\RH #3 >8 ]  <red\4-1-\RH #2 >8  <la,\5>8 r4 r8^\markup { "perc." } <red'-3>8 (  |
+      <mi'\2-3 >8-> ) [ <mi'\1 >8 ]
+      
+      <mi'-\RH #4 ~ la-1-\RH #2 >16 ( <mi' sol>16 )  mi8 
+      
+      \acciaccatura <la-2>8 \glissando <si-2>8 [ <re'-1>8 ]\acciaccatura <si-2>8 \glissando <la-2>8 ( <sol\3>8 ) |
     }
     {
-      c8 [ <g'\1>8 ] ( <fis'\1>8 ) <g\3>8 <e'\1>8 [ <d'\2>8 ] <g\3>8 <e'\1-\RH #4 >8 |
-      e,8 [  <a\3-2-\RH #4 fis'\1-1-\RH #2  >8 ( ] <g\3   e'\1  >8 ) <g\4 c'\3 e'\2 >8 e,8 [ <fis\4-2 b\3-3  d'\2-1 >8 ] e,8 <b\3 d\4 >8 |
-      e,8 [ <a\3-1>8 (] <g\3>8 ) <a\3>8 ( <g\3>8 ) [ <e\4>8 (] <d\4>8 ) cis8 |
-      r8 <d\4-\RH #2 >8 ( <e\4-2>8 ) [ <g\3-\RH #3 >8 ]<b\2-\RH #4 >8 [ <g\3-\RH #3 >8 ] <e\4-\RH #2 >8 <g'\1-4-\RH #4 >8~ |
-      g'2 <d\4-\RH #2 >8 ( <dis-1\4>8 ) ( <e-3\4>8 ) [<g\3-\RH #3 >8 ]|
+      do8 [ <sol'\1>8 ] ( <fad'\1>8 ) <sol\3>8 <mi'\1>8 [ <re'\2>8 ] <sol\3>8 <mi'\1-\RH #4 >8 |
+      \set doubleSlurs = ##t
+      mi,8 [  <la\3-2-\RH #4 fad'\1-1-\RH #2  >8 ( ] <sol\3   mi'\1  >8 ) <sol\4 do'\3 mi'\2 >8 mi,8 [ <fad\4-2 si\3-3  re'\2-1 >8 ] mi,8 <si\3 re\4 >8 |
+      \set doubleSlurs = ##f
+      mi,8 [ <la\3-1>8 (] <sol\3>8 ) <la\3>8 ( <sol\3>8 ) [ <mi\4>8 (] <re\4>8 ) dod8 |
+      r8 <re\4-\RH #2 >8 ( <mi\4-2>8 ) [ <sol\3-\RH #3 >8 ]<si\2-\RH #4 >8 [ <sol\3-\RH #3 >8 ] <mi\4-\RH #2 >8 <sol'\1-4-\RH #4 >8~ |
+      sol'2 <re\4-\RH #2 >8 ( <red-1\4>8 ) ( <mi-3\4>8 ) [<sol\3-\RH #3 >8 ]|
     }
    }
    \bar "|."
@@ -154,52 +169,53 @@ TrackAVoiceBMusic = #(define-music-function (parser location inTab) (boolean?)
 #{
    \tempo 4=120
    \clef #(if inTab "tab" "treble_8")
-   \key g \major
+   \key sol \major
    \time 4/4
+   
    \set Staff.midiInstrument = #"acoustic guitar (steel)"
    \set fingeringOrientations = #'(left)
    \voiceTwo % basso col pollice
-   r2 a,4 ( b,4 ) |
+   r2 la,4 ( si,4 ) |
    \repeat volta 2 {
-      <e,\6>2 <e,\6>2 |
-      <a,\5>2 r8 <fis\4>8 ( <e\4>8 ) [<g\3>8] |
-      <e,\6>2 <e,\6>2 |
-      <a,\5>2 r8 <fis\4>8 ( <e\4>8[ ) <g\3>8] |
-      <c-2\5>2 <g,-2>2 |
+      <mi,\6>2 <mi,\6>2 |
+      <la,\5>2 r8 <fad\4>8 ( <mi\4>8 ) [<sol\3>8] |
+      <mi,\6>2 <mi,\6>2 |
+      <la,\5>2 r8 <fad\4>8 ( <mi\4>8[ ) <sol\3>8] |
+      <do-2\5>2 <sol,-2>2 |
    }
    \alternative {
     {
-      <c\5-2>2 <g,-2>2 |
-      <b,\5>4. <a,-\RH #1 >8 <fis,-2>4_\markup { "perc."} r8 <b,-2\5>8 |
-      <b,\5-2 dis-1-\RH #2 >8 \glissando ( <c\5 e>8 ) \glissando ( <b, dis>4) c4-2 <cis-3\5>4   |
+      <do\5-2>2 <sol,-2>2 |
+      <si,\5>4. <la,-\RH #1 >8 <fad,-2>4_\markup { "perc."} r8 <si,-2\5>8 |
+      <si,\5-2 red-1-\RH #2 >8 \glissando ( <do\5 mi>8 ) \glissando ( <si, red>4) do4-2 <dod-3\5>4   |
     }
     {
-      <c\5-2>2 <g,\6-2>2  |
-      <e,\6>2 <e,\6>4 <e,\6>4  |
-      <e,\6>4. <cis\5-3>2 <cis-3-\RH #1 >8 ( \glissando  |
-      <c\5-3>1 ) |
-      r2 <a,\5 >4 ( <b,-2\5>4 ) 
+      <do\5-2>2 <sol,\6-2>2  |
+      <mi,\6>2 <mi,\6>4 <mi,\6>4  |
+      <mi,\6>4. <dod\5-3>2 <dod-3-\RH #1 >8 ( \glissando  |
+      <do\5-3>1 ) |
+      r2 <la,\5 >4 ( <si,-2\5>4 ) 
     }
    }
 \repeat volta 2 {
-      <e,\6>2 <e,\6>2 |
-      <a,\5>2 r8 <fis\4>8 ( <e\4>8 ) [<g\3>8] |
-      <e,\6>2 <e,\6>2 |
-      <a,\5>2 r8 <fis\4>8 ( <e\4>8[ ) <g\3>8] |
-      <c-2\5>2 <g,-2>2 |
+      <mi,\6>2 <mi,\6>2 |
+      <la,\5>2 r8 <fad\4>8 ( <mi\4>8 ) [<sol\3>8] |
+      <mi,\6>2 <mi,\6>2 |
+      <la,\5>2 r8 <fad\4>8 ( <mi\4>8[ ) <sol\3>8] |
+      <do-2\5>2 <sol,-2>2 |
    }
    \alternative {
     {
-      <c\5-2>2 <g,-2>2 |
-      <b,\5>4. <a,-\RH #1 >8 <fis,-2>4 r4  |
-      r4 r8 <e-1-\RH #1 >8 s2  |
+      <do\5-2>2 <sol,-2>2 |
+      <si,\5>4. <la,-\RH #1 >8 <fad,-2>4 r4  |
+      r4 r8 <mi-1-\RH #1 >8 s2  |
     }
     {
-      <c\5-2>2 <g,\6-2>2  |
-      <e,\6>2 <e,\6>4 <e,\6>4  |
-      <e,\6>4. <cis\5-3>2 <cis-3-\RH #1 >8 ( \glissando  |
-      <c\5-3>1 ) |
-      r2 <a,\5 >4 ( <b,-2\5>4 ) 
+      <do\5-2>2 <sol,\6-2>2  |
+      <mi,\6>2 <mi,\6>4 <mi,\6>4  |
+      <mi,\6>4. <dod\5-3>2 <dod-3-\RH #1 >8 ( \glissando  |
+      <do\5-3>1 ) |
+      r2 <la,\5 >4 ( <si,-2\5>4 ) 
     }
    }
    
@@ -232,7 +248,7 @@ TrackBVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
 #{
    \tempo 4=120
    \clef #(if inTab "tab" "treble_8")
-   \key g \major
+   \key sol \major
    \time 4/4
    \set Staff.midiInstrument = #"acoustic guitar (steel)"
    \set fingeringOrientations = #'(left)
@@ -260,27 +276,27 @@ TrackBVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
    }}
    \voiceOne
    \repeat volta 2 {
-      e,8 [ <g\3>8 ] <b'\1-1>8-> <g\3>8 e,8 [ <b\2>8 ] <b'\1-1>8-> \glissando <a'\1-1>8  |
-      a,8 <cis'-2\3>8 <a-3\4>8 [ <b\2>8 ] a,8 [ <cis'\3>8 ] <a\4>8 <b\2>8  |
-      e,8 [ <g\3>8 ] <fis'-1\2>8-> <g\3>8 e,8 [ <g\2>8 ] <fis'-1\2>8-> \glissando <e'-1\2>8^"t"  |
-      <a,\6>8 [ <cis'-2\3>8 ] <e-3\5>8 <e'-1\2>8 <a,\6>8 <cis'~\3>8 <cis'\3>4  |
-      <c\6>8 [ <g\3>8 ] <d''-4\1>8 <g\3>8 <c\6>8 <g\3>8 <b'-1\1>8 [ <a'-4\2>8 ] |
+      mi,8 [ <sol\3>8 ] <si'\1-1>8-> <sol\3>8 mi,8 [ <si\2>8 ] <si'\1-1>8-> \glissando <la'\1-1>8  |
+      la,8 <dod'-2\3>8 <la-3\4>8 [ <si\2>8 ] la,8 [ <dod'\3>8 ] <la\4>8 <si\2>8  |
+      mi,8 [ <sol\3>8 ] <fad'-1\2>8-> <sol\3>8 mi,8 [ <sol\3>8 ] <fad'-1\2>8-> \glissando <mi'-1\2>8^"t"  |
+      <la,\6>8 [ <dod'-2\3>8 ] <mi-3\5>8 <mi'-1\2>8 <la,\6>8 <dod'~\3>8 <dod'\3>4  |
+      <do\6>8 [ <sol\3>8 ] <re''-4\1>8 <sol\3>8 <do\6>8 <sol\3>8 <si'-1\1>8 [ <la'-4\2>8 ] |
    }
    \alternative {
      {
-      <c\6>8 [ <g\3>8 ] <c'\4>8 <g'-1\2>8 <c\6>8 <a'-4\2>8 <c'\4>8 [ <b'-1\1>8 ] |
-      <b'\1>4  \glissando \hideNotes \grace { g'4 } \unHideNotes  r4 r2 |
+      <do\6>8 [ <sol\3>8 ] <do'\4>8 <sol'-1\2>8 <do\6>8 <la'-4\2>8 <do'\4>8 [ <si'-1\1>8 ] |
+      <si'\1>4  \glissando \hideNotes \grace { sol'4 } \unHideNotes  r4 r2 |
       \oneVoice r1 \voiceOne |
      }
      {
-      <c\6>8 [ <g\3>8 ] <c'\4>8 <g'-1\2>8 <c\6>8 <a'-4\2>8 <c'\4>8 [ e'8 ] |
-      r2.. b8~ |
+      <do\6>8 [ <sol\3>8 ] <do'\4>8 <sol'-1\2>8 <do\6>8 <la'-4\2>8 <do'\4>8 [ mi'8 ] |
+      r2.. si8~ |
       \oneVoice
-      b2 r8 bes8 ( a8 ) [ g8~ ] |
-      g2 r8 
+      si2 r8 sib8 ( la8 ) [ sol8~ ] |
+      sol2 r8 
       \voiceOne 
-      <fis-2>8 ( \glissando f8 ) \glissando ( e8~ ) |
-      e2  r2 |
+      <fad-2>8 ( \glissando fa8 ) \glissando ( mi8~ ) |
+      mi2  r2 |
      }
    }
 
@@ -293,7 +309,7 @@ TrackBVoiceBMusic = #(define-music-function (parser location inTab) (boolean?)
 #{
    \tempo 4=120
    \clef #(if inTab "tab" "treble_8")
-   \key g \major
+   \key sol \major
    \set Staff.midiInstrument = #"acoustic guitar (steel)"
    \set fingeringOrientations = #'(left)
    \time 4/4
@@ -322,24 +338,24 @@ TrackBVoiceBMusic = #(define-music-function (parser location inTab) (boolean?)
    }
    \voiceTwo
    \repeat volta 2 {
-      <e,\6>4^\markup {\musicglyph #"scripts.segno" } <b\4-3>4-> <e,\6>4 <b\4>8-> \glissando <a\4>8  |
-      <a,\5>4 <a\4>4 <a,\5>4 <a\4>4  |
-      <e,\6>4 <fis-3\5>4->_"t" <e,\6>4 <fis\5-3>8-> \glissando <e-3\5>8_"t"  |
-      <a,\6>4_\markup {\teeny "T"} <e\5>4 <a,\6>4 <e\5>4  |
-      <c\6>4_\markup {\teeny "T"} <b-2\4>4 <c\6>4 <b-2\4>4  |
+      <mi,\6>4^\markup {\musicglyph #"scripts.segno" } <si\4-3>4-> <mi,\6>4 <si\4>8-> \glissando <la\4>8  |
+      <la,\5>4 <la\4>4 <la,\5>4 <la\4>4  |
+      <mi,\6>4 <fad-3\5>4->_"t" <mi,\6>4 <fad\5-3>8-> \glissando <mi-3\5>8_"t"  |
+      <la,\6>4_\markup {\teeny "T"} <mi\5>4 <la,\6>4 <mi\5>4  |
+      <do\6>4_\markup {\teeny "T"} <si-2\4>4 <do\6>4 <si-2\4>4  |
    }
    \alternative {
     {
-      <c\6>4_\markup {\teeny "T"} <c'-3\4>4 <c\6>4 <c'-2\4>4  |
-      <b,\6>4_\markup {\teeny "T"} \glissando \hideNotes \grace { g,4 } \unHideNotes  r4 r2 |
+      <do\6>4_\markup {\teeny "T"} <do'-3\4>4 <do\6>4 <do'-2\4>4  |
+      <si,\6>4_\markup {\teeny "T"} \glissando \hideNotes \grace { sol,4 } \unHideNotes  r4 r2 |
       s1 |
     }
     {
-      <c\6>4_\markup {\teeny "T"} <c'-3\4>4 <c\6>4 <c'\4>4  |
-      e,8 ( [ <fis,-2>8 ]) ( <g,-3>8) a,8 \acciaccatura a,8 <b,-2\5>8 <d\4>8 (  <e-2\4>8 ) [b8 ]|
+      <do\6>4_\markup {\teeny "T"} <do'-3\4>4 <do\6>4 <do'\4>4  |
+      mi,8 ( [ <fad,-2>8 ]) ( <sol,-3>8) la,8 \acciaccatura la,8 <si,-2\5>8 <re\4>8 (  <mi-2\4>8 ) [si8 ]|
       s1 |
-      s2 s8 <d-3\5>8 ( \glissando <cis\5>8 ) \glissando ( <c\5>8~ ) |
-      <c\5>2 r2|
+      s2 s8 <re-3\5>8 ( \glissando <dod\5>8 ) \glissando ( <do\5>8~ ) |
+      <do\5>2 r2|
       
     }
    }
@@ -376,8 +392,10 @@ TrackBStaffGroup = \new StaffGroup <<
    \TrackAStaffGroup
    \TrackBStaffGroup
    >>
+   \layout {}
    \header {
       title = "Ode to Billy's Hoe" 
       composer = "Rick Ruskin" 
+      arranger = "Giovanni Unterberger"
    }
 }

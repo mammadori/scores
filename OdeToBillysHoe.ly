@@ -8,12 +8,10 @@
 \version "2.16.0"
 \paper {
    top-margin = 8
-   page-count = #3
    print-all-headers = ##t
    ragged-right = ##f
-   ragged-bottom = ##f
+   ragged-bottom = ##t
 }
-
 \layout {
    \context { \Score
       \override MetronomeMark #'padding = #'5
@@ -50,6 +48,41 @@ palmMute = #(define-music-function (parser location note) (ly:music?)
       (acons 'style 'do (ly:music-property note 'tweaks)))
    note)
 
+bbarre =
+#(define-music-function (barre location str music) (string? ly:music?)
+   (let ((elts (extract-named-music music '(NoteEvent EventChord))))
+     (if (pair? elts)
+         (let ((first-element (first elts))
+               (last-element (last elts)))
+           (set! (ly:music-property first-element 'articulations)
+                 (cons (make-music 'TextSpanEvent 'span-direction -1)
+                       (ly:music-property first-element 'articulations)))
+           (set! (ly:music-property last-element 'articulations)
+                 (cons (make-music 'TextSpanEvent 'span-direction 1)
+                       (ly:music-property last-element 'articulations))))))
+   #{
+       \once \override TextSpanner #'font-size = #-2
+       \once \override TextSpanner #'font-shape = #'upright
+       \once \override TextSpanner #'staff-padding = #3
+       \once \override TextSpanner #'style = #'line
+       \once \override TextSpanner #'to-barline = ##f
+       \once \override TextSpanner #'bound-details =
+            #`(
+               (left
+                (text . ,#{ \markup { #str } #})
+                (Y . 0)
+                (padding . 0.25)
+                (attach-dir . -2))
+               (right
+                (text . ,#{ \markup { \draw-line #'( 0 . -.5) } #})
+                (Y . 0)
+                (padding . 0.25)
+                (attach-dir . 2)))
+%% uncomment this line for make full barred
+       % \once  \override TextSpanner #'bound-details #'left #'text =  \markup { "B" #str }
+       $music
+   #})
+
 
 TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
 #{
@@ -59,7 +92,6 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
    \time 4/4
    \set Staff.midiInstrument = #"acoustic guitar (steel)"
    \set fingeringOrientations = #'(left)
-   
 
    \voiceOne % parte melodica, indice, medio, anulare
    r2 <re\4-\RH #2 >8 ( <red-1\4>8 ) ( <mi-3\4>8 ) [<sol\3-\RH #3 >8 ]|
@@ -67,21 +99,21 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
 
      \mergeDifferentlyHeadedOn
       r8 <sol\3>8 \acciaccatura <fa'-2\1>8 \glissando <fad'\1-\RH #4 si\2-\RH #3 >4~ <fad'\1  si\2 >8 ( <mi'\1>8 ) <re'-3\2-\RH #4 >8 [
-      \textSpannerUp % barré
-      \override TextSpanner #'(bound-details left text) = #"4/6 B II "
-       <dod'\2-\RH #4 mi\4-\RH #2 >8 ] \startTextSpan |
+
+     \bbarre "4/6 B II" {
+       <dod'\2-\RH #4 mi\4-\RH #2 >8 ] |
        \set doubleSlurs = ##t
-       r8 <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[ 
-      \stopTextSpan
-      
+       r8  <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[ }
+
+
       <mi'\1~ la\3( >8 ] <mi'\1 sol\3) >8  fad8 r8 <sol-\RH  #2 > |
       mi,8 <sol\3>8 <fad'\1 si\2 >4~ <si\2 fad'\1 >8 [ \( \acciaccatura {<sol'\1>16 [ <fad'\1>16 ]  } <mi'\1>8 ]  \)  <re'\2-3-\RH #4 >8  [ 
-      
-      \textSpannerUp % barré
-      <dod'\2-\RH #4  mi\4-\RH #2 >8 ] \startTextSpan |
+
+    \bbarre "4/6 B II" {
+      <dod'\2-\RH #4  mi\4-\RH #2 >8 ]  |
       r8 <dod'\2 mi\4 >8 ( <re'-2\2 fad\4-3 >8 ) [
-      \stopTextSpan
-      
+    }
+
       <mi'\1~ la\3 >8 ] ( <mi'\1 sol\3 >8 ) <fad-\RH #1 >8 r8 <sol> |
       r4 <fad'-1\1-\RH #4 >8 <sol\3-\RH #2 >8 <sol,\6>8 [ <re'-3\2-\RH #3 >8 ] <sol\3>8 <sol'-4\1>8  |
    }
@@ -91,23 +123,24 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
      \mergeDifferentlyHeadedOn
      \mergeDifferentlyDottedOn
       <si,\5-2>8 [ <la\3-3-\RH #3 >8 ]  <red\4-1-\RH #2 >8  <la,\5>8 r2  |
-    
+
       <la\3-3-\RH #3 >8 \glissando ([ <lad\3 >8 ]) \glissando (<la\3 >8 ) (<sol\3>8 )  la-1 ( [ sol8 ) ] <mi\4-1>8 [ ( re8 ) ]|
     }
     {
-      \override TextSpanner #'(bound-details left text) = #"4/6 B V "
-      \textSpannerUp % barré 
-               
-      
+
       do8 [ <sol'\1>8 ] ( <fad'\1>8 ) <sol\3>8 <mi'\1>8 [ <re'\2>8 ] <sol\3>8 <mi'\1-\RH #4 >8 |
        \set doubleSlurs = ##t
-      mi,8 [  <la\3-2-\RH #4 fad'\1-1-\RH #2  >8 ( ] \startTextSpan
+      mi,8 [  <la\3-2-\RH #4 fad'\1-1-\RH #2  >8 ( ]
+
+
       \set doubleSlurs = ##f
 
-      <sol\3   mi'\1  >8 )
-      \stopTextSpan
-      
-      <sol\4 do'\3 mi'\2 >8 mi,8 [ <fad\4-2 si\3-3  re'\2-1 >8 ] mi,8 <si\3-\RH #4 re\4-\RH #2 >8 |
+      <sol\3   mi'\1  >8 ) 
+
+
+       <sol-1\4 do'-1\3 mi'-1\2 >8 
+
+      mi,8  [ <fad\4-2 si\3-3  re'\2-1 >8 ] mi,8 <si\3-\RH #4 re\4-\RH #2 >8 |
       mi,8 [ <la\3-1>8 (] <sol\3>8 ) <la\3>8 ( <sol\3>8 ) [ <mi\4>8 (] <re\4>8 ) dod8 |
       r8 <re\4-\RH #2 >8 ( <mi\4-2>8 ) [ <sol\3-\RH #3 >8 ]<si\2-\RH #4 >8 [ <sol\3-\RH #3 >8 ] <mi\4-\RH #2 >8 <sol'\1-4-\RH #4 >8~ |
       sol'2 <re\4-\RH #2 >8 ( <red-1\4>8 ) ( <mi-3\4>8 ) [<sol\3-\RH #3 >8 ]|
@@ -117,25 +150,26 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
 
      \mergeDifferentlyHeadedOn
       r8^\markup {\musicglyph #"scripts.segno" } <sol\3>8 \acciaccatura <fa'-2\1>8 \glissando <fad'\1-\RH #4 si\2-\RH #3 >4~ <fad'\1  si\2 >8 ( <mi'\1>8 ) <re'-3\2-\RH #4 >8 [
-      \textSpannerUp % barré
-      \override TextSpanner #'(bound-details left text) = #"4/6 B II "
-       <dod'\2-\RH #4 mi\4-\RH #2 >8 ] \startTextSpan |
+
+
+       <dod'\2-\RH #4 mi\4-\RH #2 >8 ]
        \set doubleSlurs = ##t
-       r8 <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[ 
-      \stopTextSpan
-      
+       r8  \bbarre "4/6 B II" { <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[  }
+
+
       <mi'\1~ la\3( >8 ] <mi'\1 sol\3) >8  fad8 r8 <sol-\RH  #2 > |
       mi,8 <sol\3>8 <fad'\1 si\2 >4~ <si\2 fad'\1 >8 [ \(
       \set doubleSlurs = ##f
       \acciaccatura {<sol'\1>16 [ <fad'\1>16 ]  } 
       <mi'\1>8 ]  \)  <re'\2-3-\RH #4 >8  [ 
-      
-      \textSpannerUp % barré
-      <dod'\2-\RH #4  mi\4-\RH #2 >8 ] \startTextSpan |
+
+      \bbarre "4/6 B II" {
+      <dod'\2-\RH #4  mi\4-\RH #2 >8 ] |
         \set doubleSlurs = ##t
         r8 <dod'\2 mi\4 >8 ( <re'-2\2 fad\4-3 >8 ) [
-      \stopTextSpan
-      
+      }
+
+
       <mi'\1~ la\3 >8 ] ( <mi'\1 sol\3 >8 ) <fad-\RH #1 >8 r8 <sol> |
       r4 <fad'-1\1-\RH #4 >8 <sol\3-\RH #2 >8 <sol,\6>8 [ <re'-3\2-\RH #3 >8 ] <sol\3>8 <sol'-4\1>8  |
    }
@@ -146,15 +180,15 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
      \mergeDifferentlyDottedOn
       <si,\5-2>8 [ <la\3-3-\RH #3 >8 ]  <red\4-1-\RH #2 >8  <la,\5>8 r4 r8^\markup { "perc." } <red'-3>8 (  |
       <mi'\2-3 >8-> ) [ <mi'\1 >8 ]
-      
+
       <mi'-\RH #4 ~ la-1-\RH #2 >16 ( <mi' sol>16 )  mi8 
-      
+
       \acciaccatura <la-2>8 \glissando <si-2>8 [ <re'-1>8 ]\acciaccatura <si-2>8 \glissando <la-2>8 ( <sol\3>8 ) |
     }
     {
       do8 [ <sol'\1>8 ] ( <fad'\1>8 ) <sol\3>8 <mi'\1>8 [ <re'\2>8 ] <sol\3>8 <mi'\1-\RH #4 >8 |
       \set doubleSlurs = ##t
-      mi,8 [  <la\3-2-\RH #4 fad'\1-1-\RH #2  >8 ( ] <sol\3   mi'\1  >8 ) <sol\4 do'\3 mi'\2 >8 mi,8 [ <fad\4-2 si\3-3  re'\2-1 >8 ] mi,8 <si\3 re\4 >8 |
+      mi,8 [  <la\3-2-\RH #4 fad'\1-1-\RH #2  >8 ( ] <sol\3   mi'\1  >8 ) <sol\4-1 do'\3-1 mi'\2-1 >8 mi,8 [ <fad\4-2 si\3-3  re'\2-1 >8 ] mi,8 <si\3 re\4 >8 |
       \set doubleSlurs = ##f
       mi,8 [ <la\3-1>8 (] <sol\3>8 ) <la\3>8 ( <sol\3>8 ) [ <mi\4>8 (] <re\4>8 ) dod8 |
       r8 <re\4-\RH #2 >8 ( <mi\4-2>8 ) [ <sol\3-\RH #3 >8 ]<si\2-\RH #4 >8 [ <sol\3-\RH #3 >8 ] <mi\4-\RH #2 >8 <sol'\1-4-\RH #4 >8~ |
@@ -171,7 +205,7 @@ TrackAVoiceBMusic = #(define-music-function (parser location inTab) (boolean?)
    \clef #(if inTab "tab" "treble_8")
    \key sol \major
    \time 4/4
-   
+
    \set Staff.midiInstrument = #"acoustic guitar (steel)"
    \set fingeringOrientations = #'(left)
    \voiceTwo % basso col pollice
@@ -300,9 +334,9 @@ TrackBVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
      }
    }
 
-  
+
    \bar "|." %\mark \markup { \musicglyph #"scripts.coda" } |
-  
+
 #})
 
 TrackBVoiceBMusic = #(define-music-function (parser location inTab) (boolean?)
@@ -356,12 +390,12 @@ TrackBVoiceBMusic = #(define-music-function (parser location inTab) (boolean?)
       s1 |
       s2 s8 <re-3\5>8 ( \glissando <dod\5>8 ) \glissando ( <do\5>8~ ) |
       <do\5>2 r2|
-      
+
     }
    }
-  
+
    \bar "|."
-   
+
 #})
 
 
@@ -392,6 +426,7 @@ TrackBStaffGroup = \new StaffGroup <<
    \TrackAStaffGroup
    \TrackBStaffGroup
    >>
+   % \midi  {}
    \layout {}
    \header {
       title = "Ode to Billy's Hoe" 
@@ -399,3 +434,4 @@ TrackBStaffGroup = \new StaffGroup <<
       arranger = "Giovanni Unterberger"
    }
 }
+

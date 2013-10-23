@@ -26,6 +26,7 @@
       \override Flag #'transparent = ##t
       \override Beam #'transparent = ##t
       \override Tie  #'after-line-breaking = #tie::tab-clear-tied-fret-numbers
+      %fixme: \override arpeggioBracket #'transparent = ##t
    }
    \context { \TabVoice
       \override Tie #'stencil = ##f
@@ -101,7 +102,11 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
       r8 <sol\3>8 \acciaccatura <fa'-2\1>8 \glissando <fad'\1-\RH #4 si\2-\RH #3 >4~ <fad'\1  si\2 >8 ( <mi'\1>8 ) <re'-3\2-\RH #4 >8 [
 
      \bbarre "4/6 B II" {
-       <dod'\2-\RH #4 mi\4-\RH #2 >8 ] |
+       \arpeggioBracket
+       \once \override Fingering #'positions = #'(-1 . 1.8)
+       <dod'\2-\RH #4  mi\4
+       -\tweak #'self-alignment-Y #-2
+       -1-\RH #2 >8 \arpeggio ] |
        \set doubleSlurs = ##t
        r8  <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[ }
 

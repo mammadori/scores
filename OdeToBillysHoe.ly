@@ -101,7 +101,7 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
      \mergeDifferentlyHeadedOn
       r8 <sol\3>8 \acciaccatura <fa'-2\1>8 \glissando <fad'\1-\RH #4 si\2-\RH #3 >4~ <fad'\1  si\2 >8 ( <mi'\1>8 ) <re'-3\2-\RH #4 >8 [
 
-     \bbarre "4/6 B II" {
+     \bbarre "⅔ B II" {
        \arpeggioBracket
        \once \override Fingering #'positions = #'(-1 . 1.8)
        <dod'\2-\RH #4  mi\4
@@ -114,7 +114,7 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
       <mi'\1~ la\3( >8 ] <mi'\1 sol\3) >8  fad8 r8 <sol-\RH  #2 > |
       mi,8 <sol\3>8 <fad'\1 si\2 >4~ <si\2 fad'\1 >8 [ \( \acciaccatura {<sol'\1>16 [ <fad'\1>16 ]  } <mi'\1>8 ]  \)  <re'\2-3-\RH #4 >8  [ 
 
-    \bbarre "4/6 B II" {
+    \bbarre "⅔ B II" {
       <dod'\2-\RH #4  mi\4-\RH #2 >8 ]  |
       r8 <dod'\2 mi\4 >8 ( <re'-2\2 fad\4-3 >8 ) [
     }
@@ -159,7 +159,7 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
 
        <dod'\2-\RH #4 mi\4-\RH #2 >8 ]
        \set doubleSlurs = ##t
-       r8  \bbarre "4/6 B II" { <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[  }
+       r8  \bbarre "⅔ B II" { <dod'-\RH #4 mi-\RH #2 >8 ( <re'\2-2 fad\4-3 >8 )[  }
 
 
       <mi'\1~ la\3( >8 ] <mi'\1 sol\3) >8  fad8 r8 <sol-\RH  #2 > |
@@ -168,7 +168,7 @@ TrackAVoiceAMusic = #(define-music-function (parser location inTab) (boolean?)
       \acciaccatura {<sol'\1>16 [ <fad'\1>16 ]  } 
       <mi'\1>8 ]  \)  <re'\2-3-\RH #4 >8  [ 
 
-      \bbarre "4/6 B II" {
+      \bbarre "⅔ B II" {
       <dod'\2-\RH #4  mi\4-\RH #2 >8 ] |
         \set doubleSlurs = ##t
         r8 <dod'\2 mi\4 >8 ( <re'-2\2 fad\4-3 >8 ) [

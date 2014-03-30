@@ -123,8 +123,8 @@ melodia =  {
     \mark \markup {\musicglyph #"scripts.segno" }
     \set fingeringOrientations = #'(left)
     r4
-    \bbarre #"4/6 B III" {
-      <fad-3 la-1 re'-2 >8(~ \arpeggio <dod'-1  la-1 mi-1>8(~ ) <fad-3 la-1 re'-2 >4 ) 
+    \bbarre #"⅔ B III" {
+      <fad-3 la-1 re'-2 >8(~ \arpeggio <dod'  la mi-1>8(~ ) <fad-3 la-1 re'-2 >4 ) 
     }
     <mi'\1>8 <sol\3>8 |
     \set fingeringOrientations = #'(left)
@@ -135,7 +135,7 @@ melodia =  {
  
     
     \set doubleSlurs = ##t
-    \bbarre #"4/6 B III" {
+    \bbarre #"⅔ B III" {
        \times 2/3 { <la-1-\rh #3 dod'-1-\rh #4 >16 [ ( <si-\3 re'-2 > ) (  <la-\rh #3 dod'-\rh #4 > ) } <sol\4-4-\rh #2 >8 ]
     }
     \time 2/4
@@ -167,7 +167,7 @@ melodia =  {
     \once \override Arpeggio #'positions = #'(0.5 . 3) 
     <mi'\3-2 sol'\2>4\arpeggio <mi'-1\2>8 <dod'-2\3> \glissando <la-2 dod'-3> ( si ) <dod'-3>4 |
     
-    \bbarre "3/6 B II" {
+    \bbarre "½ B II" {
 	    <fad-3-\rh #2 re'-2-\rh #4 >8 [ re, ] <la-1> <fad'-1> re <re'-2>_"t" <sol'-3> ( [ <fad'-1> ] )
     } 
 
@@ -283,5 +283,5 @@ Tablatura = \new TabStaff \with { stringTunings = #guitar-drop-d-tuning } <<
     \Tablatura   
   >>
   \layout { }
-  % \midi { }
+  %\midi { }
 }

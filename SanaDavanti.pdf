@@ -1,0 +1,1209 @@
+%!PS-Adobe-1.0
+%%Title: A nicely formatted song sheet
+%%Creator: Chordii 4.5.1
+%%DocumentFonts: (atend)
+%%Pages: (atend)
+%%BoundingBox: 5 5 607 787
+%%EndComments
+/inch {72 mul } def
+%  iso.ps  reencodeing of ISO 8859-1 8-bit french characters
+%
+/reencodedict 5 dict def
+/Re-encode
+  { reencodedict begin
+      /newencoding exch def
+      /newfontname exch def
+      /basefontname exch def
+
+      /basefontdict basefontname findfont def
+
+      /newfont basefontdict maxlength dict def
+
+      basefontdict
+      {  exch dup dup /FID ne exch /Encoding ne and
+	{ exch newfont 3 1 roll put }
+	{ pop pop }
+	ifelse
+      } forall
+      newfont /FontName newfontname put
+      newfont /Encoding newencoding put
+      newfontname newfont definefont pop
+      end
+   } def
+
+/ISO 256 array def
+
+0 1 255 { ISO exch /.notdef put } for
+ISO
+
+  dup 8#040 /space put
+  dup 8#041 /exclam put
+  dup 8#042 /quotedbl put
+  dup 8#043 /numbersign put
+  dup 8#044 /dollar put
+  dup 8#045 /percent put
+  dup 8#046 /ampersand put
+  dup 8#047 /quotesingle put
+  dup 8#050 /parenleft put
+  dup 8#051 /parenright put
+  dup 8#052 /asterisk put
+  dup 8#053 /plus put
+  dup 8#054 /comma put
+  dup 8#055 /hyphen put
+  dup 8#056 /period put
+  dup 8#057 /slash put
+  dup 8#060 /zero put
+  dup 8#061 /one put
+  dup 8#062 /two put
+  dup 8#063 /three put
+  dup 8#064 /four put
+  dup 8#065 /five put
+  dup 8#066 /six put
+  dup 8#067 /seven put
+  dup 8#070 /eight put
+  dup 8#071 /nine put
+  dup 8#072 /colon put
+  dup 8#073 /semicolon put
+  dup 8#074 /less put
+  dup 8#075 /equal put
+  dup 8#076 /greater put
+  dup 8#077 /question put
+  dup 8#100 /at put
+  dup 8#101 /A put
+  dup 8#102 /B put
+  dup 8#103 /C put
+  dup 8#104 /D put
+  dup 8#105 /E put
+  dup 8#106 /F put
+  dup 8#107 /G put
+  dup 8#110 /H put
+  dup 8#111 /I put
+  dup 8#112 /J put
+  dup 8#113 /K put
+  dup 8#114 /L put
+  dup 8#115 /M put
+  dup 8#116 /N put
+  dup 8#117 /O put
+  dup 8#120 /P put
+  dup 8#121 /Q put
+  dup 8#122 /R put
+  dup 8#123 /S put
+  dup 8#124 /T put
+  dup 8#125 /U put
+  dup 8#126 /V put
+  dup 8#127 /W put
+  dup 8#130 /X put
+  dup 8#131 /Y put
+  dup 8#132 /Z put
+  dup 8#133 /bracketleft put
+  dup 8#134 /backslash put
+  dup 8#135 /bracketright put
+  dup 8#136 /asciicircum put
+  dup 8#137 /underscore put
+  dup 8#140 /grave put
+  dup 8#141 /a put
+  dup 8#142 /b put
+  dup 8#143 /c put
+  dup 8#144 /d put
+  dup 8#145 /e put
+  dup 8#146 /f put
+  dup 8#147 /g put
+  dup 8#150 /h put
+  dup 8#151 /i put
+  dup 8#152 /j put
+  dup 8#153 /k put
+  dup 8#154 /l put
+  dup 8#155 /m put
+  dup 8#156 /n put
+  dup 8#157 /o put
+  dup 8#160 /p put
+  dup 8#161 /q put
+  dup 8#162 /r put
+  dup 8#163 /s put
+  dup 8#164 /t put
+  dup 8#165 /u put
+  dup 8#166 /v put
+  dup 8#167 /w put
+  dup 8#170 /x put
+  dup 8#171 /y put
+  dup 8#172 /z put
+  dup 8#173 /braceleft put
+  dup 8#174 /bar put
+  dup 8#175 /braceright put
+  dup 8#176 /asciitilde put
+  dup 8#241 /exclamdown put
+  dup 8#242 /cent put
+  dup 8#243 /sterling put
+  dup 8#244 /currency put
+  dup 8#245 /yen put
+  dup 8#246 /bar put
+  dup 8#247 /section put
+  dup 8#250 /dieresis put
+  dup 8#251 /copyright put
+  dup 8#252 /ordfeminine put
+  dup 8#253 /guillemotleft put
+  dup 8#254 /.notdef put
+  dup 8#255 /endash put
+  dup 8#256 /registered put
+  dup 8#257 /tilde put
+  dup 8#260 /ring put
+  dup 8#261 /.notdef put
+  dup 8#262 /.notdef put
+  dup 8#263 /.notdef put
+  dup 8#264 /acute put
+  dup 8#265 /.notdef put
+  dup 8#266 /paragraph put
+  dup 8#267 /.notdef put
+  dup 8#270 /cedilla put
+  dup 8#271 /.notdef put
+  dup 8#272 /ordmasculine put
+  dup 8#273 /guillemotright put
+  dup 8#274 /.notdef put
+  dup 8#275 /circumflex put
+  dup 8#276 /dotlessi put
+  dup 8#277 /questiondown put
+  dup 8#300 /Agrave put
+  dup 8#301 /Aacute put
+  dup 8#302 /Acircumflex put
+  dup 8#303 /Atilde put
+  dup 8#304 /Adieresis put
+  dup 8#305 /Aring put
+  dup 8#306 /AE put
+  dup 8#307 /Ccedilla put
+  dup 8#310 /Egrave put
+  dup 8#311 /Eacute put
+  dup 8#312 /Ecircumflex put
+  dup 8#313 /Edieresis put
+  dup 8#314 /Igrave put
+  dup 8#315 /Iacute put
+  dup 8#316 /Icircumflex put
+  dup 8#317 /Idieresis put
+  dup 8#320 /.notdef put
+  dup 8#321 /Ntilde put
+  dup 8#322 /Ograve put
+  dup 8#323 /Oacute put
+  dup 8#324 /Ocircumflex put
+  dup 8#325 /Otilde put
+  dup 8#326 /Odieresis put
+  dup 8#327 /.notdef put
+  dup 8#330 /Oslash put
+  dup 8#331 /Ugrave put
+  dup 8#332 /Uacute put
+  dup 8#333 /Ucircumflex put
+  dup 8#334 /Udieresis put
+  dup 8#335 /.notdef put
+  dup 8#336 /.notdef put
+  dup 8#337 /germandbls put
+  dup 8#340 /agrave put
+  dup 8#341 /aacute put
+  dup 8#342 /acircumflex put
+  dup 8#343 /atilde put
+  dup 8#344 /adieresis put
+  dup 8#345 /aring put
+  dup 8#346 /ae put
+  dup 8#347 /ccedilla put
+  dup 8#350 /egrave put
+  dup 8#351 /eacute put
+  dup 8#352 /ecircumflex put
+  dup 8#353 /edieresis put
+  dup 8#354 /igrave put
+  dup 8#355 /iacute put
+  dup 8#356 /icircumflex put
+  dup 8#357 /idieresis put
+  dup 8#360 /.notdef put
+  dup 8#361 /ntilde put
+  dup 8#362 /ograve put
+  dup 8#363 /oacute put
+  dup 8#364 /ocircumflex put
+  dup 8#365 /otilde put
+  dup 8#366 /odieresis put
+  dup 8#367 /.notdef put
+  dup 8#370 /oslash put
+  dup 8#371 /ugrave put
+  dup 8#372 /uacute put
+  dup 8#373 /ucircumflex put
+  dup 8#374 /udieresis put
+  dup 8#375 /ydieresis put
+  dup 8#376 /.notdef put
+  pop
+
+
+/CHORD_FONT { /Helvetica-Oblique findfont 9 scalefont } def
+/Helvetica-Oblique /Helvetica-Oblique ISO Re-encode
+/TEXT_FONT { /Times-Roman findfont 12 scalefont } def
+/Times-Roman /Times-Roman ISO Re-encode
+/MONO_FONT { /Courier findfont 10 scalefont } def
+/Courier /Courier ISO Re-encode
+% routines for the drawing of the chords
+/grid { 
+	currentpoint currentpoint
+	6 { 0 cagesizeX rlineto incr cagesize neg incr add rmoveto } repeat
+	moveto
+	5 { cagesize 0 rlineto 0 cagesize sub incr rmoveto } repeat
+	1 setlinewidth stroke 
+	moveto
+	currentpoint
+	0 cagesizeX rmoveto cagesize 0 rlineto
+	cagesize 30 div setlinewidth stroke
+	moveto
+} def
+
+/dot {
+	/fret exch def /str exch def
+	/x 5  fret abs sub incr mul half-incr sub def
+	/y 6 str sub incr mul def
+	currentpoint
+	y x rmoveto
+	0 setgray
+	fret -1 eq
+	  {
+	  0 incr rmoveto
+	  check neg  check neg rmoveto
+	  check check rlineto check check rlineto
+	  check neg check neg rmoveto check neg check rmoveto
+  	  check check neg rlineto check check neg rlineto
+	  cagesize 50 div setlinewidth stroke
+	  }
+	  {  fret 0 ne
+	    { currentpoint dot-size 0 360 arc fill}
+	    { currentpoint
+	      check 0 360 newpath arc
+	      cagesize 50 div setlinewidth
+	    }
+	    ifelse 
+	    stroke 
+	  }
+	  ifelse
+	moveto
+} def	
+
+/dots {
+	grid
+	/origin exch def
+	/fret-displ exch def
+	  1 1 6
+	  {
+	    /str exch def
+	    /fret exch def
+	    fret -2 ne {str fret dot} if
+	  } for
+
+	fret-displ 1 ne
+	{
+    	  currentpoint displ-font setfont
+    	  0 cagesize fret-displ 10 ge {1.75} {3} ifelse div sub
+	  cagesizeX incr sub rmoveto
+    	  /char 6 string def fret-displ char cvs show moveto 
+	} if
+
+	/chord-name exch def
+	currentpoint displ-font setfont
+	0 cagesizeX cagesizeX 15 div add dot-size 3 mul add rmoveto
+	chord-name stringwidth pop 2 div cagesize 2 div exch sub 0 rmoveto
+	chord-name show
+	0 cagesize 10 div rmoveto
+	origin 2 eq { (*) show} if
+	origin 1 eq { (**) show} if
+	chord-font setfont moveto
+} def
+
+/cagesize 30 def
+/incr cagesize 5 div def
+/cagesizeX incr 4 mul def
+/half-incr incr 2 div def
+/dot-size cagesize 15 div def
+/check cagesize 20 div def
+
+/chord-font /Times-Roman findfont cagesize 5 div scalefont def
+/displ-font /Times-Roman findfont cagesize 3 div scalefont def
+% end of the routines for the drawing of the chords
+
+%%EndProlog
+%%Page: "1" 1
+%%BeginPageSetup
+%%EndPageSetup
+/TEXT_FONT { /Times-Roman findfont 17 scalefont } def
+/Times-Roman /Times-Roman ISO Re-encode
+/MONO_FONT { /Courier findfont 15 scalefont } def
+/Courier /Courier ISO Re-encode
+TEXT_FONT setfont
+( Sana davanti) dup stringwidth pop 2 div
+612.000000 2 div exch sub 756 moveto
+show
+/TEXT_FONT { /Times-Roman findfont 12 scalefont } def
+/Times-Roman /Times-Roman ISO Re-encode
+/MONO_FONT { /Courier findfont 10 scalefont } def
+/Courier /Courier ISO Re-encode
+TEXT_FONT setfont
+( Seconda classificata al quarto baiocco d'Oro 779 a B.c.) dup stringwidth pop 2 div
+612.000000 2 div exch sub 739 moveto
+show
+TEXT_FONT setfont
+( by Tigellino, Fungoide, Durex) dup stringwidth pop 2 div
+612.000000 2 div exch sub 727 moveto
+show
+TEXT_FONT setfont
+.9  setgray
+12  setlinewidth
+newpath
+70 687 moveto
+(Come "Pocahontas" di Neil Young, ma più Rock ) stringwidth rlineto
+stroke
+72 683 moveto
+0  setgray
+1 setlinewidth
+(Come "Pocahontas" di Neil Young, ma più Rock) show
+/minhpos 72 def
+TEXT_FONT setfont
+(L'aurora) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+673 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+72 662 moveto
+(L'aurora di domani,) show
+TEXT_FONT setfont
+72 641 moveto
+(vedrà il grande giorno,) show
+/minhpos 72 def
+TEXT_FONT setfont
+(non ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sim) stringwidth pop add def
+631 moveto
+CHORD_FONT setfont
+(Sim) show
+TEXT_FONT setfont
+72 620 moveto
+(non solo con le mani,) show
+/minhpos 72 def
+TEXT_FONT setfont
+(ma ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+610 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+72 599 moveto
+(ma come in un film porno.) show
+/minhpos 72 def
+TEXT_FONT setfont
+(La mo) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mi) stringwidth pop add def
+569 moveto
+CHORD_FONT setfont
+(Mi) show
+TEXT_FONT setfont
+(La morale) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sol) stringwidth pop add def
+569 moveto
+CHORD_FONT setfont
+(Sol) show
+TEXT_FONT setfont
+(La morale, del suo ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+569 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(La morale, del suo padre bi) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+569 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+72 558 moveto
+(La morale, del suo padre bigotto) show
+/minhpos 72 def
+TEXT_FONT setfont
+(é la ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mi) stringwidth pop add def
+548 moveto
+CHORD_FONT setfont
+(Mi) show
+TEXT_FONT setfont
+(é la causa) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sol) stringwidth pop add def
+548 moveto
+CHORD_FONT setfont
+(Sol) show
+TEXT_FONT setfont
+(é la causa del suo ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+548 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(é la causa del suo culo ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+548 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+72 537 moveto
+(é la causa del suo culo rotto.) show
+1  setlinewidth
+newpath
+62 578 moveto
+0 -51 rlineto
+closepath
+stroke
+TEXT_FONT setfont
+72 476 moveto
+(Vi racconto la mia storia) show
+TEXT_FONT setfont
+72 455 moveto
+(Di una vita di astinenza,) show
+TEXT_FONT setfont
+72 434 moveto
+(cazzi ce ne sono tanti) show
+TEXT_FONT setfont
+72 413 moveto
+(ma perché devo restar senza!) show
+TEXT_FONT setfont
+72 372 moveto
+(Queste donne, sono commedianti) show
+TEXT_FONT setfont
+72 351 moveto
+(Rotte dietro, però sane davanti) show
+1  setlinewidth
+newpath
+62 392 moveto
+0 -51 rlineto
+closepath
+stroke
+TEXT_FONT setfont
+72 290 moveto
+(Mi porta a far due passi) show
+TEXT_FONT setfont
+72 269 moveto
+(In giro sul listôn,) show
+TEXT_FONT setfont
+72 248 moveto
+(Madonna quanti cazzi) show
+TEXT_FONT setfont
+72 227 moveto
+(Che bussano al porton!) show
+TEXT_FONT setfont
+72 166 moveto
+(Verginità, e problemi grossi,) show
+TEXT_FONT setfont
+72 145 moveto
+(ma di uccelli, solo in plastica rossi) show
+TEXT_FONT setfont
+72 104 moveto
+(Queste donne, sono commedianti) show
+TEXT_FONT setfont
+72 83 moveto
+(Rotte dietro, però sane davanti) show
+1  setlinewidth
+newpath
+62 206 moveto
+0 -133 rlineto
+closepath
+stroke
+TEXT_FONT setfont
+342 694 moveto
+(Perché alla fine son gelosa) show
+TEXT_FONT setfont
+342 673 moveto
+(Del vicino di colore) show
+TEXT_FONT setfont
+342 652 moveto
+(Della fava lacrimosa) show
+TEXT_FONT setfont
+342 631 moveto
+(Io ne sento sol l'odore) show
+TEXT_FONT setfont
+342 590 moveto
+(Per adesso, solo con la mano) show
+TEXT_FONT setfont
+342 569 moveto
+(Grossa invidia, verso il deretano.) show
+1  setlinewidth
+newpath
+332 610 moveto
+0 -51 rlineto
+closepath
+stroke
+TEXT_FONT setfont
+342 508 moveto
+(Mi riempe di Saugella) show
+TEXT_FONT setfont
+342 487 moveto
+(Ph 3 e qualche cosa,) show
+TEXT_FONT setfont
+342 466 moveto
+(mi fa diventar tutta) show
+TEXT_FONT setfont
+342 445 moveto
+(Soffìce e sbrodolosa.) show
+TEXT_FONT setfont
+342 404 moveto
+(Queste donne, sono commedianti) show
+TEXT_FONT setfont
+342 383 moveto
+(Rotte dietro, però sane davanti) show
+1  setlinewidth
+newpath
+332 424 moveto
+0 -41 rlineto
+closepath
+stroke
+TEXT_FONT setfont
+342 342 moveto
+(Stamattina si è sposata) show
+TEXT_FONT setfont
+342 321 moveto
+(Finalmente è la gran sera) show
+TEXT_FONT setfont
+342 300 moveto
+(Tra poco sarò sfondata) show
+TEXT_FONT setfont
+342 279 moveto
+(Si realizza una chimera) show
+TEXT_FONT setfont
+342 178 moveto
+(Non più solo, clitoride e labbrette) show
+/minhpos 342 def
+TEXT_FONT setfont
+(Ora basta, tener le cosce strette) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+168 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+342 157 moveto
+(Ora basta, tener le cosce strette) show
+TEXT_FONT setfont
+.9  setgray
+12  setlinewidth
+newpath
+340 129 moveto
+(Come "Galaxy Express 999" degli Oliver Onions ) stringwidth rlineto
+stroke
+342 125 moveto
+0  setgray
+1 setlinewidth
+(Come "Galaxy Express 999" degli Oliver Onions) show
+/minhpos 342 def
+TEXT_FONT setfont
+() stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+115 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+342 104 moveto
+(Punto G, Punto G, Punto G punto Giiiiiiiii) show
+1  setlinewidth
+newpath
+332 198 moveto
+0 -94 rlineto
+closepath
+stroke
+/minhpos 342 def
+TEXT_FONT setfont
+(Il marito ) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sim) stringwidth pop add def
+74 moveto
+CHORD_FONT setfont
+(Sim) show
+TEXT_FONT setfont
+(Il marito già arrapato ) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mim) stringwidth pop add def
+74 moveto
+CHORD_FONT setfont
+(Mim) show
+TEXT_FONT setfont
+(Il marito già arrapato frughe) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La7) stringwidth pop add def
+74 moveto
+CHORD_FONT setfont
+(La7) show
+TEXT_FONT setfont
+342 63 moveto
+(Il marito già arrapato frugherà) show
+/minhpos 342 def
+TEXT_FONT setfont
+(E ) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mim) stringwidth pop add def
+53 moveto
+CHORD_FONT setfont
+(Mim) show
+TEXT_FONT setfont
+(E palpe) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La7) stringwidth pop add def
+53 moveto
+CHORD_FONT setfont
+(La7) show
+TEXT_FONT setfont
+(E palperà, lag) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+53 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(E palperà, laggiù, tra ) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mim) stringwidth pop add def
+53 moveto
+CHORD_FONT setfont
+(Mim) show
+TEXT_FONT setfont
+(E palperà, laggiù, tra tanto ) stringwidth  pop 342 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La7) stringwidth pop add def
+53 moveto
+CHORD_FONT setfont
+(La7) show
+TEXT_FONT setfont
+342 42 moveto
+(E palperà, laggiù, tra tanto pelo) show
+showpage
+%%EndPage: "1" 1
+%%Page: "2" 2
+%%BeginPageSetup
+%%EndPageSetup
+/minhpos 72 def
+TEXT_FONT setfont
+(C) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+756 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(Ciò che ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sim) stringwidth pop add def
+756 moveto
+CHORD_FONT setfont
+(Sim) show
+TEXT_FONT setfont
+(Ciò che cerca infine lui ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mim) stringwidth pop add def
+756 moveto
+CHORD_FONT setfont
+(Mim) show
+TEXT_FONT setfont
+(Ciò che cerca infine lui trovar sap) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La7) stringwidth pop add def
+756 moveto
+CHORD_FONT setfont
+(La7) show
+TEXT_FONT setfont
+72 745 moveto
+(Ciò che cerca infine lui trovar saprà) show
+/minhpos 72 def
+TEXT_FONT setfont
+(e ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mim) stringwidth pop add def
+735 moveto
+CHORD_FONT setfont
+(Mim) show
+TEXT_FONT setfont
+(e lì ver) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La7) stringwidth pop add def
+735 moveto
+CHORD_FONT setfont
+(La7) show
+TEXT_FONT setfont
+(e lì verrà, ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+735 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(e lì verrà, ripar) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Fa#m) stringwidth pop add def
+735 moveto
+CHORD_FONT setfont
+(Fa#m) show
+TEXT_FONT setfont
+(e lì verrà, ripartirà) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sim) stringwidth pop add def
+735 moveto
+CHORD_FONT setfont
+(Sim) show
+TEXT_FONT setfont
+72 724 moveto
+(e lì verrà, ripartirà) show
+/minhpos 72 def
+TEXT_FONT setfont
+(go) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mim) stringwidth pop add def
+714 moveto
+CHORD_FONT setfont
+(Mim) show
+TEXT_FONT setfont
+(goder farà, go) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Solm) stringwidth pop add def
+714 moveto
+CHORD_FONT setfont
+(Solm) show
+TEXT_FONT setfont
+72 703 moveto
+(goder farà, goder farà) show
+TEXT_FONT setfont
+.9  setgray
+12  setlinewidth
+newpath
+70 675 moveto
+(RIT ) stringwidth rlineto
+stroke
+72 671 moveto
+0  setgray
+1 setlinewidth
+(RIT) show
+/minhpos 72 def
+TEXT_FONT setfont
+(Il ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+641 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(Il punto G, solo il ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Fa#m) stringwidth pop add def
+641 moveto
+CHORD_FONT setfont
+(Fa#m) show
+TEXT_FONT setfont
+72 630 moveto
+(Il punto G, solo il punto G) show
+/minhpos 72 def
+TEXT_FONT setfont
+(Mi fa) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sol) stringwidth pop add def
+620 moveto
+CHORD_FONT setfont
+(Sol) show
+TEXT_FONT setfont
+(Mi farà provare un orgasmone il ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+620 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+72 609 moveto
+(Mi farà provare un orgasmone il punto G,) show
+/minhpos 72 def
+TEXT_FONT setfont
+(solo il ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+599 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(solo il punto G, sempre il ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Fa#m) stringwidth pop add def
+599 moveto
+CHORD_FONT setfont
+(Fa#m) show
+TEXT_FONT setfont
+72 588 moveto
+(solo il punto G, sempre il punto G) show
+/minhpos 72 def
+TEXT_FONT setfont
+(come un ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sol) stringwidth pop add def
+578 moveto
+CHORD_FONT setfont
+(Sol) show
+TEXT_FONT setfont
+(come un treno il buon marito ci ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+578 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+(come un treno il buon marito ci darà) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Lam) stringwidth pop add def
+578 moveto
+CHORD_FONT setfont
+(Lam) show
+TEXT_FONT setfont
+72 567 moveto
+(come un treno il buon marito ci darà) show
+/minhpos 72 def
+TEXT_FONT setfont
+(E solo il ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Mim) stringwidth pop add def
+557 moveto
+CHORD_FONT setfont
+(Mim) show
+TEXT_FONT setfont
+(E solo il punto G, sempre il ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Solm) stringwidth pop add def
+557 moveto
+CHORD_FONT setfont
+(Solm) show
+TEXT_FONT setfont
+72 546 moveto
+(E solo il punto G, sempre il punto G) show
+/minhpos 72 def
+TEXT_FONT setfont
+(Questa ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+536 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(Questa notte, trove) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (La) stringwidth pop add def
+536 moveto
+CHORD_FONT setfont
+(La) show
+TEXT_FONT setfont
+72 525 moveto
+(Questa notte, troverà...) show
+1  setlinewidth
+newpath
+62 650 moveto
+0 -135 rlineto
+closepath
+stroke
+TEXT_FONT setfont
+72 484 moveto
+(Punto G, Punto G, Punto G punto Giiiiiiiii) show
+TEXT_FONT setfont
+72 443 moveto
+(In futuro avrò cazzo in quantità) show
+TEXT_FONT setfont
+72 422 moveto
+(L'astinenza, sarà, ormai un ricordo) show
+TEXT_FONT setfont
+72 401 moveto
+(Quel bel mazzo muscoloso è gia il mio eroe) show
+TEXT_FONT setfont
+72 380 moveto
+(che si ergerà, penetrerà) show
+TEXT_FONT setfont
+72 359 moveto
+(e io verrò se troverà!) show
+TEXT_FONT setfont
+72 318 moveto
+(IL punto G, solo il punto G) show
+TEXT_FONT setfont
+.9  setgray
+12  setlinewidth
+newpath
+70 290 moveto
+(Come "Lo chiamavano Trinità" degli Oliver Onions ) stringwidth rlineto
+stroke
+72 286 moveto
+0  setgray
+1 setlinewidth
+(Come "Lo chiamavano Trinità" degli Oliver Onions) show
+TEXT_FONT setfont
+.9  setgray
+12  setlinewidth
+newpath
+70 278 moveto
+(Intro + parte fischiata  ) stringwidth rlineto
+stroke
+72 274 moveto
+0  setgray
+1 setlinewidth
+(Intro + parte fischiata ) show
+/minhpos 72 def
+TEXT_FONT setfont
+() stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Rem) stringwidth pop add def
+264 moveto
+CHORD_FONT setfont
+(Rem) show
+TEXT_FONT setfont
+( ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Lam) stringwidth pop add def
+264 moveto
+CHORD_FONT setfont
+(Lam) show
+TEXT_FONT setfont
+(  ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Re) stringwidth pop add def
+264 moveto
+CHORD_FONT setfont
+(Re) show
+TEXT_FONT setfont
+(   ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Lam) stringwidth pop add def
+264 moveto
+CHORD_FONT setfont
+(Lam) show
+/minhpos 72 def
+TEXT_FONT setfont
+(Ma mi) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Rem) stringwidth pop add def
+224 moveto
+CHORD_FONT setfont
+(Rem) show
+TEXT_FONT setfont
+(Ma mi attendeva una ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Do) stringwidth pop add def
+224 moveto
+CHORD_FONT setfont
+(Do) show
+TEXT_FONT setfont
+72 213 moveto
+(Ma mi attendeva una gran delusion) show
+/minhpos 72 def
+TEXT_FONT setfont
+(Il suo ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Rem) stringwidth pop add def
+203 moveto
+CHORD_FONT setfont
+(Rem) show
+TEXT_FONT setfont
+(Il suo uomo è un co) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Do) stringwidth pop add def
+203 moveto
+CHORD_FONT setfont
+(Do) show
+TEXT_FONT setfont
+72 192 moveto
+(Il suo uomo è un coion) show
+/minhpos 72 def
+TEXT_FONT setfont
+(Glielo ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Rem) stringwidth pop add def
+182 moveto
+CHORD_FONT setfont
+(Rem) show
+TEXT_FONT setfont
+(Glielo dà solo a malin) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sol) stringwidth pop add def
+182 moveto
+CHORD_FONT setfont
+(Sol) show
+TEXT_FONT setfont
+(Glielo dà solo a malincuor ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sib) stringwidth pop add def
+182 moveto
+CHORD_FONT setfont
+(Sib) show
+TEXT_FONT setfont
+72 171 moveto
+(Glielo dà solo a malincuor ) show
+/minhpos 72 def
+TEXT_FONT setfont
+(E tiene solo un quarto ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Rem) stringwidth pop add def
+161 moveto
+CHORD_FONT setfont
+(Rem) show
+TEXT_FONT setfont
+(E tiene solo un quarto d'or) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Fa) stringwidth pop add def
+161 moveto
+CHORD_FONT setfont
+(Fa) show
+TEXT_FONT setfont
+(E tiene solo un quarto d'or...) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sol) stringwidth pop add def
+161 moveto
+CHORD_FONT setfont
+(Sol) show
+TEXT_FONT setfont
+(E tiene solo un quarto d'or... ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sib) stringwidth pop add def
+161 moveto
+CHORD_FONT setfont
+(Sib) show
+TEXT_FONT setfont
+72 150 moveto
+(E tiene solo un quarto d'or... ) show
+/minhpos 72 def
+TEXT_FONT setfont
+() stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Rem) stringwidth pop add def
+140 moveto
+CHORD_FONT setfont
+(Rem) show
+TEXT_FONT setfont
+( ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Fa) stringwidth pop add def
+140 moveto
+CHORD_FONT setfont
+(Fa) show
+TEXT_FONT setfont
+(  ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sol) stringwidth pop add def
+140 moveto
+CHORD_FONT setfont
+(Sol) show
+TEXT_FONT setfont
+(   ) stringwidth  pop 72 add 
+dup minhpos lt
+     {pop minhpos} if
+dup /minhpos exch (Sib) stringwidth pop add def
+140 moveto
+CHORD_FONT setfont
+(Sib) show
+TEXT_FONT setfont
+72 89 moveto
+(Che problema una sana erezion) show
+TEXT_FONT setfont
+72 68 moveto
+(Cado in depression) show
+TEXT_FONT setfont
+72 47 moveto
+(Rimpiango quasi il dildo che fu) show
+TEXT_FONT setfont
+342 745 moveto
+(Almeno quello stava su...) show
+/TEXT_FONT { /Times-Roman findfont 10 scalefont } def
+/Times-Roman /Times-Roman ISO Re-encode
+/MONO_FONT { /Courier findfont 8 scalefont } def
+/Courier /Courier ISO Re-encode
+TEXT_FONT setfont
+(Sana davanti) dup stringwidth pop 2 div
+612.000000 2 div exch sub 40.000000 3 div moveto
+show
+/TEXT_FONT { /Times-Roman findfont 12 scalefont } def
+/Times-Roman /Times-Roman ISO Re-encode
+/MONO_FONT { /Courier findfont 10 scalefont } def
+/Courier /Courier ISO Re-encode
+1  setlinewidth
+0  setgray
+/TEXT_FONT { /Times-Roman findfont 10 scalefont } def
+/Times-Roman /Times-Roman ISO Re-encode
+/MONO_FONT { /Courier findfont 8 scalefont } def
+/Courier /Courier ISO Re-encode
+TEXT_FONT setfont
+newpath
+72.000000 30.000000 moveto
+468.000000 0 rlineto
+stroke
+(Page 2) dup stringwidth pop
+612.000000 exch sub 1 inch sub 40.000000 3 div moveto
+show
+showpage
+%%EndPage: "2" 2
+%%Trailer
+%%Pages: 2 1
+%%DocumentFonts: Times-Roman Helvetica-Oblique Courier
+%%EOF

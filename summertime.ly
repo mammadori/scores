@@ -94,8 +94,6 @@ notaDueTesto = \markup \wordwrap-string #"La parte che segue è uguale alla prim
 \header {
  title = "Summertime"
  subtitle = "G. Gershwin"
- enteredby="Marco Amadori"
- maintainer="marco.amadori@gmail.com"
  arranger = "Trascrizione e arrangiamento per chitarra di G.Unterberger"
  tagline = ##f
 }
@@ -236,7 +234,7 @@ b4.-1\6 c'4-1\6 b8-1\6 ~ b4.\6 r4 r8 |
 e4-> r8 r4 r8 g4.\6\thumb~ g4\6 r8 |
 a2.-\tabString #5 c'4.\6\thumb r4 r8 |
 d'2. des'2.-3-\tabString #5 |
-c'4-2-\tabString #5 c'8 r4 a8-2-\tabString #6 ~ a4 e8( g8-2-\tabString #6 gis8-3-\tabString #6 b8-1-\tabString #5 ) |
+c'4-2-\tabString #5 c'8 r4 b8-2\5 ~ b4\5 e8( g8-2-\tabString #6 gis8-3-\tabString #6 b8-1-\tabString #5 ) |
 e2. g4.-2\6 r4 r8 |
 <fis\6 bes\5>4. r4 b8\6~ b4\6 r8 r4 r8 |
 e4. e4. g4.\6 r4 r8 |
@@ -287,10 +285,10 @@ upperFive = {
 e''4-\rh #"a" b'8-\tabString #2 -\rh #"m" g'4-\tabString #3 -\rh #"i" e''8~ e''4.~ e''4. | \break
 \acciaccatura { ais8-2\5( \tag #'tabOnly \glissando } b4-2\5)-\rh #"i" d'8-\tabString #4 -\rh #"m"( dis'4-2-\tabString #4 ) e'8-2-\tabString #4 ~ e'4 r8 r4 r8 |
 r4 \acciaccatura <ais dis'>8 <b-1\5 e'-1\4 >8~ <b e'>4. d'4.\4 r4^\markup { \italic "perc." } r8 | \break
-\bar ".|:" e'4. r4^\markup { \italic "perc." } <es'\5 a'\4>8~ <es'\5 a'\4>4 es'8\5( e'4\5) g'8~ |
+\repeat volta 2 { e'4. r4^\markup { \italic "perc." } <es'\5 a'\4>8~ <es'\5 a'\4>4 es'8\5( e'4\5) g'8~ |
 g'4 e'8 r4 r8 d'4.\4 r4^\markup { \italic "perc." } r8 | \break
 e'4. r4 <es'\5 a'\4>8~ <es'\5 a'\4>4 a'8\4( \tag #'tabOnly \glissando b'4\4) g'8~ |
-g'4 e'8 r4 r8 d'4.\4 r4 r8 \bar ":|." \break
+g'4 e'8 r4 r8 d'4.\4 r4 r8 } \break
 }
 
 % Sezione finale: bassi e accompagnamento del ritornello.
@@ -299,10 +297,10 @@ c'4.-1-\tabString #5 s4 b8-1\5 ~ b4.\5 fis'4-3\4 r8 |
 e4.~ e4 a'8-4-\tabString #3 ~ \tuplet 4/6 { a'16( b'16-3-\tabString #3 a'16-1-\tabString #3 g'16-\tabString #3 ) } e'4-1-\tabString #4 ( d'8-\tabString #4 ) |
 \acciaccatura { f8-1\6( \tag #'tabOnly \glissando } fis!4-1\6)-\rh #"p" r8 f4-1\6 e8~ e4 e8( g8-2-\tabString #6 gis8-3-\tabString #6 b8-1-\tabString #5 ) |
 e2. g4.\6 r4 r8 |
-\bar ".|:" <fis\6 bes\5>4. r4 b8\6~ b4\6 r8 r4 r8 |
+\repeat volta 2 { <fis\6 bes\5>4. r4 b8\6~ b4\6 r8 r4 r8 |
 e4. e4. g4.\6 r4 r8 |
 <fis\6 bes\5>4. r4 b8\6~ b4\6 r8 r4 r8 |
-e4. e4. g4.\6 r4 r8 \bar ":|."
+e4. e4. g4.\6 r4 r8 }
 }
 
 % Riunisce le sezioni nelle due voci complete.
@@ -324,6 +322,17 @@ notes = \transpose c c, \leftHandLayout <<
   }
  >>
  \layout { }
+}
+
+% Versione sonora (MIDI): non viene stampata, genera summertime_corretto.midi.
+% \unfoldRepeats fa suonare due volte il ritornello finale.
+\score {
+ \new Staff \with { midiInstrument = "acoustic guitar (nylon)" } {
+  \key g \major \time 12/8
+  \tempo 4. = 144
+  \unfoldRepeats \removeWithTag #'tabOnly \notes
+ }
+ \midi { }
 }
 
 % Note esecutive stampate in fondo allo spartito.
